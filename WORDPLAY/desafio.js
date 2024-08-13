@@ -34,7 +34,7 @@ function main(){
             lista_com_n_e_letras = listinha_letra_n_mais_letras(lista_arquivo);
             mostrar_lista(lista_com_n_e_letras)
             console.log(`
-                QUANTIDADE DE PALAVRAS SEM A LETRA E: ${lista_com_n_e_letras.length}
+                QUANTIDADE DE PALAVRAS COM A LETRA N: ${lista_com_n_e_letras.length}
                 PORCENTAGEM                         : ${porcentagem(lista_arquivo.length,lista_com_n_e_letras.length).toFixed(2)} %`);
             break;
     }
