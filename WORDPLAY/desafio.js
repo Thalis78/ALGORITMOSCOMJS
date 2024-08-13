@@ -7,8 +7,9 @@ function main(){
     const lista_arquivo = listinha_arquivo();
     const lista_palavra_mais_vinte = listinha_com_vinte_letras(lista_arquivo);
     const lista_palavra_sem_E = listinha_sem_letra_e(lista_arquivo);
-    let menu = Number(question(opcao_menu()))
     let lista_com_n_e_letras = 0;
+    let menu = Number(question(opcao_menu()))
+    
     switch(menu){
         case 1:
             mostrar_lista(lista_arquivo)
