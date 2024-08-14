@@ -35,7 +35,7 @@ export function list_twenty_letters(listinhaComPalavra){
 
     return array;
 }
-// 9.2 PALAVRA SEM LETRA E
+// 9.2 PALABRA SEM LETRA E
 export function has_no_e(listinhaComPalavra){
     let array = [];
     for(let i in listinhaComPalavra){
@@ -140,15 +140,13 @@ export function is_abecedarian(listinhaComPalavra){
                 }
             }
         }
-        count++;
-        if(count == string.length -1){
+        if(count == string.length - 1){
             array.push(listinhaComPalavra[i])
         }
         count = 0;
     }
-    return array
+    return array;
 }
-
 export function list(array){
     for(let i = 1; i <= array.length;i++){
         console.log(`${i} - ${array[i-1]}`)
