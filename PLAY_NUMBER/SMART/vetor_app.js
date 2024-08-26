@@ -1,13 +1,13 @@
 import { atualizar_numero, editar_por_posicao, inicializar_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, remover_item_lista,resertar_valor, salvar, voltar_menu} from "./vetor_funcionalidades.js";
 import { filter, redunce } from "./vetor_utils.js";
-import { input, int, print } from "./utils.js";
+import { clear, input, int, print } from "./utils.js";
 
 function main(){
     let vetor = [];
     let opcao = -1;
     while(opcao !== 16){
         opcao = menu_opcao()
-        console.clear()
+        clear()
         switch(opcao){
             case 1:
                 vetor = inicializar_vetor()
@@ -71,7 +71,7 @@ function main(){
             print("PROGRAMA FINALIZADO!!!")
             break
         }else{
-            console.clear()
+            clear()
         }
     }
 }main();
