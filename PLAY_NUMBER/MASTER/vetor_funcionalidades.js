@@ -1,5 +1,5 @@
 import { input, int, print } from "./utils.js";
-import { embaralhar, map, map_fracao, map_negativos, ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
+import { embaralhar, map, map_negativos, ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
 import {writeFileSync} from "fs"
 
 export function menu_opcao(){
@@ -101,17 +101,13 @@ export function menor_e_maior_com_suas_posicoes(vetor){
     `)
 
 }
-export function somatorio_vetor(vetor){
-    let somatiorio = 0;
+export function redunce(vetor){
+    let acumulador = 0;
     for(let i of vetor){
-        somatiorio+=i
+        acumulador+=i
     }
-    return somatiorio;
+    return acumulador;
 }
-export function media_vetor(somatiorio,vetor){
-    return somatiorio/(vetor.length)
-}
-
 export function atualizar_numero(vetor){
     let opcao_regra = int(input
     (
@@ -132,7 +128,8 @@ export function atualizar_numero(vetor){
             let num_exp = int(input("INFORME O NUMERO PARA EXPONENCIACAO"))
             return map(vetor, i => i ** num_exp)
         case 3:
-            return map_fracao(vetor)
+            let numero = input("DIGITE UMA FRACAO PARA MULTIPLICAR TODOS OS VALORES DO VETOR: ").split("/").map(Number);
+            return map(vetor, i => i * numero[0]/numero[1],numero)
         case 4:
             return map_negativos(vetor)
         case 5:
@@ -151,26 +148,14 @@ export function novos_valores(vetor){
     }
     return novo_vetor
 }
-export function remover_por_valor(vetor){
+export function remover_item_lista(vetor,expressao,entrada){
     let novo_vetor = []
-    let valor = int(input("INFORME O NUMERO QUE VOCÊ DESEJA REMOVER: "))
-    for(let i = 0; i < vetor.length; i++){
-        if(valor != [vetor[i]]){
+    for(let i in vetor){
+        if(expressao(i,entrada)){
             novo_vetor.push(vetor[i])
         }
     }
     return novo_vetor
-}
-export function remover_por_posicao(vetor){
-    let novo_vetor = []
-    mostrar_vetor(vetor)
-    let posicao = int(input("INFORME A POSICAO DO VETOR QUE DESEJA REMOVER:"))
-    for(let i = 0; i < vetor.length; i++){
-        if((posicao - 1) != i){
-            novo_vetor.push(vetor[i])
-        }
-    }
-    return novo_vetor;
 }
 export function editar_por_posicao(vetor){
     let novo_vetor = []
