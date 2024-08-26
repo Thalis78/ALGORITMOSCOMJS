@@ -1,4 +1,4 @@
-import { input, int, number_random, print } from "./utils.js";
+import { clear, input, int, number_random, print } from "./utils.js";
 import { embaralhar, map,ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
 import {writeFileSync} from "fs"
 
@@ -52,11 +52,14 @@ export function inicializar_vetor(){
         case 3:
             return vetor_por_arquivo(min,max,tamanho)
         default:
+            clear()
+            print("NÃO FOI POSSIVEL REALIZAR O PROCESSO POIS VOCÊ ESCOLHEU UMA OPÇÃO QUE NÃO É VALIDA")                         
             inicializar_vetor()
     }     
 }
 export function mostrar_vetor(vetor){
     if(vetor.length > 0){
+        print("-------RESULTADO-------")
         for(let i = 0;i < vetor.length;i++){
             print(
         `|${i+1} --> ${vetor[i]} `)
@@ -83,7 +86,7 @@ export function resertar_valor(vetor){
 }
 export function quant_vetor(vetor){
     let quant = 0
-    for(let i = 1;i < vetor.length;i++){
+    for(let i = 0;i < vetor.length;i++){
         quant+=1;
     }
     return quant
@@ -129,7 +132,7 @@ export function atualizar_numero(vetor){
             let num_exp = int(input("INFORME O NUMERO PARA EXPONENCIACAO"))
             return map(vetor, i => i ** num_exp)
         case 3:
-            let numero = input("DIGITE UMA FRACAO PARA MULTIPLICAR TODOS OS VALORES DO VETOR: ").split("/").map(Number);
+            let numero = input("DIGITE UMA FRACAO PARA MULTIPLICAR TODOS OS VALORES DO VETOR(EX:10/2): ").split("/").map(Number);
             return map(vetor, i => i * numero[0]/numero[1],numero)
         case 4:
             let num_min_and_max = input("INFORME O MINIMO E O MAXIMO(EX: 10,20)").split(",").map(Number)
@@ -139,7 +142,9 @@ export function atualizar_numero(vetor){
         case 6: 
             return embaralhar(vetor)
         default:
-            atualizar_numero()    
+            clear()
+            print("VOCÊ ESCOLHEU UMA OPÇÃO QUE NÃO É VALIDA")                         
+            atualizar_numero(vetor)    
     } 
 }
 export function novos_valores(vetor){
