@@ -9,7 +9,7 @@ function main(){
         opcao = menu_opcao()
         switch(opcao){
             case 1:
-                vetor = inicializar_vetor(vetor)
+                vetor = inicializar_vetor()
                 break
             case 2:
                 mostrar_vetor(vetor)
