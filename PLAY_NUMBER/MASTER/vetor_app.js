@@ -1,4 +1,4 @@
-import { atualizar_numero, editar_por_posicao, inicializar_vetor, media_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, redunce, remover_item_lista,resertar_valor, salvar} from "./vetor_funcionalidades.js";
+import { atualizar_numero, editar_por_posicao, inicializar_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, redunce, remover_item_lista,resertar_valor, salvar} from "./vetor_funcionalidades.js";
 import { filter } from "./vetor_utils.js";
 import { input, int, print } from "./utils.js";
 
