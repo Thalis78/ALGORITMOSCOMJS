@@ -1,6 +1,6 @@
-import { atualizar_numero, editar_por_posicao, inicializar_vetor, media_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, remover_por_posicao, remover_por_valor, resertar_valor, salvar, somatorio_vetor } from "./vetor_funcionalidades.js";
+import { atualizar_numero, editar_por_posicao, inicializar_vetor, media_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, redunce, remover_item_lista,resertar_valor, salvar} from "./vetor_funcionalidades.js";
 import { filter } from "./vetor_utils.js";
-import { print } from "./utils.js";
+import { input, int, print } from "./utils.js";
 
 function main(){
     let vetor = [];
@@ -24,16 +24,20 @@ function main(){
                 print(menor_e_maior_com_suas_posicoes(vetor))
                 break
             case 6:
-                print(`SOMATORIO DO VETOR : ${somatorio_vetor(vetor)}`)
+                print(`SOMATORIO DO VETOR : ${redunce(vetor)}`)
                 break 
             case 7:
-                print(`MEDIA DO VETOR : ${media_vetor(somatorio_vetor(vetor),vetor)}`)
+                print(`MEDIA DO VETOR : ${redunce(vetor)/vetor.length}`)
                 break
             case 8:
-                mostrar_vetor(filter(vetor, i => i > 0))
+                let valores_positivos = filter(vetor, i => i > 0)
+                mostrar_vetor(valores_positivos)
+                print(`QUANTIDADE : ${quant_vetor(valores_positivos)}`)
                 break
             case 9:
-                mostrar_vetor(filter(vetor, i => i < 0))
+                let valores_negativos = filter(vetor, i => i < 0)
+                mostrar_vetor(valores_negativos)
+                print(`QUANTIDADE : ${quant_vetor(valores_negativos)}`)
                 break 
             case 10:
                 vetor = atualizar_numero(vetor)
@@ -42,10 +46,14 @@ function main(){
                 vetor = novos_valores(vetor)
                 break
             case 12:
-                vetor = remover_por_valor(vetor)
+                mostrar_vetor(vetor)
+                let valor = int(input("DIGA UM VALOR EXATO PARA REMOVER NA LISTA: "))
+                vetor = remover_item_lista(vetor,i => valor != vetor[i],valor)
                 break 
             case 13:
-                vetor = remover_por_posicao(vetor)
+                mostrar_vetor(vetor)
+                let posicao = int(input("INFORME A POSIÇÃO QUE VOCÊ DESEJA REMOVER: "))
+                vetor = remover_item_lista(vetor,i => posicao - 1 != i ,posicao)
                 break
             case 14:
                 vetor = editar_por_posicao(vetor)
@@ -56,9 +64,7 @@ function main(){
                 break 
             case 16:
                 print("PROGRAMA FINALIZADO!!!")
-                break
-            default:
-                            
+                break                            
         }
     }
 }main();
