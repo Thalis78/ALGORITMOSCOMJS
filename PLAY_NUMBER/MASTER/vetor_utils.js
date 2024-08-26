@@ -1,6 +1,6 @@
 import {readFileSync} from "fs"
 
-import { int,input, number_random ,print} from "./utils.js"
+import { int,input, number_random} from "./utils.js"
 
 export function vetor_aleatorio(min,max,tamanho){
     let vetor = []
@@ -20,12 +20,21 @@ export function vetor_feito_por_usuario(min,max,tamanho){
     }
     return vetor;
 }
-export function vetor_por_arquivo(){
-    let vetor = {}
-    const dados = readFileSync(input("INFORME O NOME DO ARQUIVO(EX:. PLAY_NUMBER.TXT): "))
-    const linhas = dados.split('')
-    for(let linha of linhas){
-        vetor.push(linha)
+export function vetor_por_arquivo(min,max,tamanho){
+    let vetor = []
+    const arquivo = input("INFORME O NOME DO ARQUIVO(EX:. PLAY_NUMBER.TXT): ")
+    const dados = readFileSync(arquivo,"utf-8")
+    const linhas = dados.split(" ").map(Number)
+    let count = 0
+    for(let i = 0; i < linhas.length;i++){
+        if(linhas[i] <= max && linhas[i] >= min){
+            vetor.push(linhas[i])
+            count++
+        }
+
+        if(count == tamanho){
+            break
+        }
     }
     return vetor
 }
@@ -64,7 +73,9 @@ export function map_negativos(vetor){
     return novo_vetor
 }
 export function ordem(vetor){
+    //AQUI EU TENHO MEU ARRAY VAZIO
     let novo_vetor = []
+    //AQUI EU TO QUERENDO PECORRER UMA LISTA CHAMADA VETOR
     for (let i = 0; i < vetor.length; i++) {
         let elemento = vetor[i]
         let e = novo_vetor.length - 1
