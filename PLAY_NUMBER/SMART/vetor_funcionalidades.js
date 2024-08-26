@@ -26,14 +26,13 @@ export function menu_opcao(){
 }
 
 export function voltar_menu(){
-    return menu_opcao();
+    return int(input("1. PARA VOLTAR AO MENU; 2. FINALIZAR PROGRAMA; ESCOLHA:"))
 }
 
 export function inicializar_vetor(){
     let opcao_vetor = 5;
     while(opcao_vetor > 3){
-        opcao_vetor = int(input
-        (
+        opcao_vetor = int(input(
     `--------- INICIALIZAR VETOR -----------
     1. VETOR ALEATORIO.
     2. VETOR GERADO PELO USER.
@@ -57,18 +56,23 @@ export function inicializar_vetor(){
     }     
 }
 export function mostrar_vetor(vetor){
-    for(let i = 0;i < vetor.length;i++){
+    if(vetor.length > 0){
+        for(let i = 0;i < vetor.length;i++){
+            print(
+        `|${i+1} --> ${vetor[i]} `)
+        }
+    }else{
         print(
-    `|${i+1} --> ${vetor[i]} `)
+        `NÃO EXISTE NENHUM ITEM NA LISTA!!!`)
     }
 
 }
 export function resertar_valor(vetor){
     let opcao_resetar = int(input(
     `--------- RESETAR VETOR -------------
-     1. RESETAR VETOR.
-     2. MANTER VETOR.
-     ESCOLHA:`))
+    1. RESETAR VETOR.
+    2. MANTER VETOR.
+    ESCOLHA:`))
      
      switch(opcao_resetar){
         case 1:
