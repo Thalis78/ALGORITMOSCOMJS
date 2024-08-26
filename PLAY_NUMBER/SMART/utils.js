@@ -1,5 +1,9 @@
 import { question } from "readline-sync"
 
+export function clear(){
+    console.clear()
+}
+
 export function print(texto){
     console.log(texto)
 }
