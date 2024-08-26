@@ -1,7 +1,6 @@
 import {readFileSync} from "fs"
 
 import { int,input, number_random} from "./utils.js"
-import { isFunction } from "util";
 
 export function vetor_aleatorio(min,max,tamanho){
     let vetor = []
