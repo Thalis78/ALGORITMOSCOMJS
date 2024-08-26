@@ -1,6 +1,7 @@
 import {readFileSync} from "fs"
 
 import { int,input, number_random} from "./utils.js"
+import { isFunction } from "util";
 
 export function vetor_aleatorio(min,max,tamanho){
     let vetor = []
@@ -54,14 +55,19 @@ export function map(vetor,expressao,entrada){
     }
     return novo_vetor
 } 
-export function map_negativos(vetor){
-    let novo_vetor = filter_positivos(vetor)
-    let num = input("INFORME O MINIMO E O MAXIMO(EX: 10,20)").split(",").map(Number)
-    for(let i = novo_vetor.length;i < vetor.length;i++){
-        novo_vetor.push(number_random(num[0],num[1]))
+export function redunce(vetor, expressao_aritmetica, segunda_expressao_aritmetica) {
+    let acumulador = 0;
+    for (let i of vetor) {
+        acumulador += expressao_aritmetica(i);
     }
-    return novo_vetor
+
+    if(typeof segunda_expressao_aritmetica === "function"){
+        acumulador = segunda_expressao_aritmetica(acumulador, vetor);
+    }
+
+    return acumulador;
 }
+
 export function ordem(vetor){
     let novo_vetor = []
     for (let i = 0; i < vetor.length; i++) {

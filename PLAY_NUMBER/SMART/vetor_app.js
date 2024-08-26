@@ -1,5 +1,5 @@
-import { atualizar_numero, editar_por_posicao, inicializar_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, redunce, remover_item_lista,resertar_valor, salvar} from "./vetor_funcionalidades.js";
-import { filter } from "./vetor_utils.js";
+import { atualizar_numero, editar_por_posicao, inicializar_vetor, menor_e_maior_com_suas_posicoes, menu_opcao, mostrar_vetor, novos_valores, quant_vetor, remover_item_lista,resertar_valor, salvar} from "./vetor_funcionalidades.js";
+import { filter, redunce } from "./vetor_utils.js";
 import { input, int, print } from "./utils.js";
 
 function main(){
@@ -24,10 +24,10 @@ function main(){
                 print(menor_e_maior_com_suas_posicoes(vetor))
                 break
             case 6:
-                print(`SOMATORIO DO VETOR : ${redunce(vetor)}`)
+                print(`SOMATORIO DO VETOR : ${redunce(vetor,i => i)}`)
                 break 
             case 7:
-                print(`MEDIA DO VETOR : ${redunce(vetor)/vetor.length}`)
+                print(`MEDIA DO VETOR : ${redunce(vetor,i => i,(acumulador,vetor) => acumulador / vetor.length)}`)
                 break
             case 8:
                 let valores_positivos = filter(vetor, i => i > 0)

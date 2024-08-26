@@ -1,5 +1,5 @@
-import { input, int, print } from "./utils.js";
-import { embaralhar, map, map_negativos, ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
+import { input, int, number_random, print } from "./utils.js";
+import { embaralhar, map,ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
 import {writeFileSync} from "fs"
 
 export function menu_opcao(){
@@ -78,7 +78,11 @@ export function resertar_valor(vetor){
      }
 }
 export function quant_vetor(vetor){
-    return vetor.length
+    let quant = 0
+    for(let i = 1;i < vetor.length;i++){
+        quant+=1;
+    }
+    return quant
 }
 export function menor_e_maior_com_suas_posicoes(vetor){
     let posicao_menor = 0, posicao_maior = 0,maior = 0,menor = Infinity;
@@ -100,13 +104,6 @@ export function menor_e_maior_com_suas_posicoes(vetor){
     POSIÇÃO:${posicao_menor}
     `)
 
-}
-export function redunce(vetor){
-    let acumulador = 0;
-    for(let i of vetor){
-        acumulador+=i
-    }
-    return acumulador;
 }
 export function atualizar_numero(vetor){
     let opcao_regra = int(input
@@ -131,7 +128,8 @@ export function atualizar_numero(vetor){
             let numero = input("DIGITE UMA FRACAO PARA MULTIPLICAR TODOS OS VALORES DO VETOR: ").split("/").map(Number);
             return map(vetor, i => i * numero[0]/numero[1],numero)
         case 4:
-            return map_negativos(vetor)
+            let num_min_and_max = input("INFORME O MINIMO E O MAXIMO(EX: 10,20)").split(",").map(Number)
+            return map(vetor,i => i = i < 0 ? number_random(num_min_and_max[0],num_min_and_max[1]) : i = i)
         case 5:
             return ordem(vetor)
         case 6: 
