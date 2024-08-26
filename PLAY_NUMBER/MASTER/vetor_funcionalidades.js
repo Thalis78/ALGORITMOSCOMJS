@@ -1,5 +1,5 @@
 import { input, int, print } from "./utils.js";
-import { embaralhar, map, map_fracao, map_negativos, ordem, vetor_aleatorio, vetor_feito_por_usuario } from "./vetor_utils.js";
+import { embaralhar, map, map_fracao, map_negativos, ordem, vetor_aleatorio, vetor_feito_por_usuario,vetor_por_arquivo } from "./vetor_utils.js";
 import {writeFileSync} from "fs"
 
 export function menu_opcao(){
@@ -51,7 +51,7 @@ export function inicializar_vetor(){
         case 2:
             return vetor_feito_por_usuario(min,max,tamanho)
         case 3:
-            return vetor_aleatorio()
+            return vetor_por_arquivo(min,max,tamanho)
         default:
             inicializar_vetor()
     }     
