@@ -47,23 +47,13 @@ export function filter(vetor,funcao){
     }
     return number;
 }
-export function map(vetor,expressao){
+export function map(vetor,expressao,entrada){
     let novo_vetor = [];
     for(let i of vetor){
-        novo_vetor.push(expressao(i))
+        novo_vetor.push(expressao(i,entrada))
     }
     return novo_vetor
-}
-export function map_fracao(vetor){
-    let novo_vetor = [];
-    let numero = input("DIGITE UMA FRACAO PARA MULTIPLICAR TODOS OS VALORES DO VETOR: ").split("/").map(Number);
-    for (let i of vetor) {
-        let novo_Num = (i * numero[0]) / numero[1];
-        novo_vetor.push(parseFloat(novo_Num.toFixed(2)));
-
-    }
-    return novo_vetor;
-}
+} 
 export function map_negativos(vetor){
     let novo_vetor = filter_positivos(vetor)
     let num = input("INFORME O MINIMO E O MAXIMO(EX: 10,20)").split(",").map(Number)
@@ -73,9 +63,7 @@ export function map_negativos(vetor){
     return novo_vetor
 }
 export function ordem(vetor){
-    //AQUI EU TENHO MEU ARRAY VAZIO
     let novo_vetor = []
-    //AQUI EU TO QUERENDO PECORRER UMA LISTA CHAMADA VETOR
     for (let i = 0; i < vetor.length; i++) {
         let elemento = vetor[i]
         let e = novo_vetor.length - 1
