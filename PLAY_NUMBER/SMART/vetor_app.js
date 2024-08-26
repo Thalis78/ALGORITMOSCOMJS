@@ -65,7 +65,9 @@ function main(){
                 break 
             case 16:
                 print("PROGRAMA FINALIZADO!!!")
-                break                            
+                break   
+            default:
+                print("VOCÊ ESCOLHEU UMA OPÇÃO QUE NÃO É VALIDA")                         
         }
         if(voltar_menu() === 2){
             print("PROGRAMA FINALIZADO!!!")
